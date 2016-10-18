@@ -46,9 +46,9 @@ public class TestRunner {
     FiniteAutomata finiteAutomata = builder.buildFA();
     List<String> passCases = builder.getPassCases();
     List<String> failCases = builder.getFailCases();
-    System.out.println("Passing Case For : " + finiteAutomata.getName());
-    runTestCases(finiteAutomata, passCases, (fa, testCase) -> fa.verify(testCase));
-    System.out.println("failing Case For : " + finiteAutomata.getName());
+    System.out.println("Passing Case For -> " + finiteAutomata.getName());
+    runTestCases(finiteAutomata, passCases, FiniteAutomata::verify);
+    System.out.println("Failing Case For -> " + finiteAutomata.getName());
     runTestCases(finiteAutomata, failCases, (fa, testCase) -> !fa.verify(testCase));
   }
 }
